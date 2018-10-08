@@ -1,0 +1,32 @@
+TaskList API
+
+Resources:
+
+Task:
+GET 	/tasks 			Get all the tasks
+GET 	/tasks/:taskId 	Get the task with id taskId
+POST 	/tasks			Create a new task
+PATCH	/tasks/:taskId	Perform a partial update of the task with id taskId
+DELETE	/tasks/:taskId	Delete the taskId
+
+{
+	'id': UUID,
+	'name': String,
+	'description': String,
+	'subtasks': [
+		Subtask,
+		...
+	]
+}
+
+Subtask:
+GET		/tasks/:taskId/subtasks 				Get all subtasks for a task
+GET		/tasks/:taskId/subtasks/:subtaskId		Get the subtask with id subtaskId for a task
+POST	/tasks/:taskId/subtasks					Create a new subtask for a task
+PATCH	/tasks/:taskId/subtasks/:subtaskId		Perform a partial update of the subtask with id subtaskId for a task
+DELETE	/tasks/:taskId/subtasks/:subtaskId		Delete the subtask with id subtaskId for a task
+
+{
+	'id': UUID,
+	'name': String
+}
